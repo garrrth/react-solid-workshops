@@ -1,10 +1,10 @@
 import './App.css';
-import Users from './Users';
+import BiznessUsers from './BiznessUsers';
 
 function App() {
   return (
     <div>
-      <Users />
+      <BiznessUsers />
     </div>
   );
 }

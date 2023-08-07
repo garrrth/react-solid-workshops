@@ -26,7 +26,7 @@ type User = {
   }
 }
 
-const Users: React.FC = () => {
+const BiznessUsers: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -37,9 +37,10 @@ const Users: React.FC = () => {
 
   return (
     <ul id='users-list'>
-      {users.filter((user) => user.id <= 4).map((user) => (
+      {users.filter((user) => user.email.endsWith('biz')).map((user) => (
         <div key={user.id} className='user-info' role='listitem'>
           <p><strong>Name:</strong> {user.name}</p>
+          <p><strong>Phone:</strong> {user.phone.split('x')[0].trim()}{user.phone.split('x').length > 0 ? <><strong>Ext:</strong> {user.phone.split('x')[1]}</> : ''}</p>
           <p><strong>Website:</strong> <a href={user.website}>{user.website}</a></p>
         </div>
       ))}
@@ -47,4 +48,4 @@ const Users: React.FC = () => {
   )
 }
 
-export default Users
+export default BiznessUsers
